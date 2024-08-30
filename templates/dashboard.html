@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Virtual Dashboard</title>
+    <style>
+      /* styles.css */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+
+      .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+      }
+
+      header {
+        background: #333;
+        color: #fff;
+        padding: 1em 0;
+      }
+
+      header h1 {
+        margin: 0;
+        text-align: center;
+      }
+
+      nav ul {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+      }
+
+      nav ul li {
+        display: inline;
+        margin: 0 15px;
+      }
+
+      nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      nav ul li a:hover {
+        text-decoration: underline;
+      }
+
+      main {
+        padding: 2em 0;
+      }
+
+      .content {
+        display: none;
+      }
+
+      .content.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Virtual Dashboard</h1>
+        <nav>
+          <ul>
+            <li><a href="#tests" onclick="showSection('tests')">Tests</a></li>
+            <li><a href="chatbot">StudyBuddy</a></li>
+            <li>
+              <a href="#assignments" onclick="showSection('assignments')"
+                >Assignments</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <section id="tests" class="content">
+          <h2>Tests</h2>
+          <p>Here you can manage your tests.</p>
+        </section>
+        <section id="studybuddy" class="content">
+          <h2>StudyBuddy</h2>
+          <p>Here you can find study aids and interact with your StudyBuddy.</p>
+        </section>
+        <section id="assignments" class="content">
+          <h2>Assignments</h2>
+          <p>Here you can manage and track your assignments.</p>
+        </section>
+      </main>
+    </div>
+    <script>
+      function showSection(sectionId) {
+        // Hide all sections
+        const sections = document.querySelectorAll(".content");
+        sections.forEach((section) => {
+          section.classList.remove("active");
+        });
+
+        // Show the selected section
+        const sectionToShow = document.getElementById(sectionId);
+        if (sectionToShow) {
+          sectionToShow.classList.add("active");
+        }
+      }
+
+      // Show the first section by default
+      document.addEventListener("DOMContentLoaded", () => {
+        showSection("tests");
+      });
+    </script>
+  </body>
+</html>

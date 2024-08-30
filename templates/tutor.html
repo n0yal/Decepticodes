@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tutor Page</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        text-align: center;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #555;
+      }
+
+      #response {
+        margin-top: 20px;
+        width: 300px;
+        text-align: center;
+      }
+
+      #response h2 {
+        color: #333;
+      }
+
+      #response p {
+        background-color: #f8f8f8;
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+      }
+
+      a {
+        margin-top: 20px;
+        display: inline-block;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Ask the AI Tutor</h1>
+    <form action="/generate_response" method="post">
+      <input
+        type="text"
+        name="prompt"
+        placeholder="Enter your question..."
+        required
+      />
+      <button type="submit">Ask</button>
+    </form>
+
+    <div id="response">
+      {% if response %}
+      <h2>Response:</h2>
+      <p>{{ response }}</p>
+      {% endif %}
+    </div>
+
+    <a href="/">Back to Home</a>
+  </body>
+</html>
